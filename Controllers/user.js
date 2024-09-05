@@ -76,8 +76,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS, // Your Gmail app password
   },
 });
-console.log("Email:", process.env.EMAIL_USER);
-console.log("Password:", process.env.EMAIL_PASS);
+
 
 // Function to send email notification
 const sendEmailNotification = async (formData) => {
