@@ -77,7 +77,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 // Function to send email notification
 const sendEmailNotification = async (formData) => {
   const mailOptions = {
@@ -126,20 +125,16 @@ const handelPostData = async (req, res) => {
 
   // Validate required fields
   if (
-    fullName &&
-    organizationName &&
-    email &&
-    phone &&
-    streetAddress &&
-    city &&
-    stateProvince &&
-    zipPostalCode &&
-    typeOfProductsOrIndustry &&
-    numberOfYearsInBusiness &&
-    !HowMuchAmountcanyouinvestindealership ||
-    !Howmuchareacanyouprovidefordisplay ||
-    !website
-
+    !fullName ||
+    !organizationName ||
+    !email ||
+    !phone ||
+    !streetAddress ||
+    !city ||
+    !stateProvince ||
+    !zipPostalCode ||
+    !typeOfProductsOrIndustry ||
+    !numberOfYearsInBusiness
   ) {
     return res
       .status(400)
