@@ -126,16 +126,20 @@ const handelPostData = async (req, res) => {
 
   // Validate required fields
   if (
-    !fullName ||
-    !organizationName ||
-    !email ||
-    !phone ||
-    !streetAddress ||
-    !city ||
-    !stateProvince ||
-    !zipPostalCode ||
-    !typeOfProductsOrIndustry ||
-    !numberOfYearsInBusiness
+    fullName &&
+    organizationName &&
+    email &&
+    phone &&
+    streetAddress &&
+    city &&
+    stateProvince &&
+    zipPostalCode &&
+    typeOfProductsOrIndustry &&
+    numberOfYearsInBusiness &&
+    !HowMuchAmountcanyouinvestindealership ||
+    !Howmuchareacanyouprovidefordisplay ||
+    !website
+
   ) {
     return res
       .status(400)
@@ -155,11 +159,9 @@ const handelPostData = async (req, res) => {
       zipPostalCode,
       typeOfProductsOrIndustry,
       numberOfYearsInBusiness,
-      HowMuchAmountcanyouinvestindealership:
-        HowMuchAmountcanyouinvestindealership || null,
-      Howmuchareacanyouprovidefordisplay:
-        Howmuchareacanyouprovidefordisplay || null,
-      website: website || null,
+      HowMuchAmountcanyouinvestindealership: null,
+      Howmuchareacanyouprovidefordisplay: null,
+      website: null,
     });
 
     // Send email notification

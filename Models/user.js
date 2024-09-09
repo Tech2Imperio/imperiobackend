@@ -26,7 +26,7 @@
 //     website: {
 //       type: String,
 //       default:'User Not Provideing',
-      
+
 //     },
 //     city: {
 //       type: String,
@@ -51,12 +51,12 @@
 //     HowMuchAmountcanyouinvestindealership: {
 //       type: String,
 //       default:' dealer not filled',
-     
+
 //     },
 //     Howmuchareacanyouprovidefordisplay: {
 //       type: String,
 //       default:'dealer not filled',
-     
+
 //     },
 //   },
 //   { timestamps: true }
@@ -106,7 +106,8 @@ const userSchema = new mongoose.Schema(
     },
     website: {
       type: String,
-      default: 'User Not Providing', // Default value set here
+      default: "User Not Providing", // Default value set here
+      required: false,
     },
     city: {
       type: String,
@@ -130,26 +131,28 @@ const userSchema = new mongoose.Schema(
     },
     HowMuchAmountcanyouinvestindealership: {
       type: String,
-      default: 'Dealer Not Filled', // Default value set here
+      default: "Dealer Not Filled", // Default value set here
+      required: false,
     },
     Howmuchareacanyouprovidefordisplay: {
       type: String,
-      default: 'Dealer Not Filled', // Default value set here
+      default: "Dealer Not Filled", // Default value set here
+      required: false,
     },
   },
   { timestamps: true }
 );
 
 // Pre-save hook to ensure fields are initialized if not provided
-userSchema.pre('save', function(next) {
+userSchema.pre("save", function (next) {
   if (!this.website) {
-    this.website = 'User Not Providing'; // Ensure default value if not provided
+    this.website = "User Not Providing"; // Ensure default value if not provided
   }
   if (!this.HowMuchAmountcanyouinvestindealership) {
-    this.HowMuchAmountcanyouinvestindealership = 'Dealer Not Filled'; // Ensure default value if not provided
+    this.HowMuchAmountcanyouinvestindealership = "Dealer Not Filled"; // Ensure default value if not provided
   }
   if (!this.Howmuchareacanyouprovidefordisplay) {
-    this.Howmuchareacanyouprovidefordisplay = 'Dealer Not Filled'; // Ensure default value if not provided
+    this.Howmuchareacanyouprovidefordisplay = "Dealer Not Filled"; // Ensure default value if not provided
   }
   next();
 });
