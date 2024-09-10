@@ -118,9 +118,9 @@ const handelPostData = async (req, res) => {
     zipPostalCode,
     typeOfProductsOrIndustry,
     numberOfYearsInBusiness,
-    HowMuchAmountcanyouinvestindealership = "Dealer Not Filled",
-    Howmuchareacanyouprovidefordisplay = "Dealer Not Filled",
-    website = "User Not Providing",
+    HowMuchAmountcanyouinvestindealership,
+    Howmuchareacanyouprovidefordisplay,
+    website,
   } = req.body;
 
   // Validate required fields

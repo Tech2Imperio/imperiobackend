@@ -106,7 +106,7 @@ const userSchema = new mongoose.Schema(
     },
     website: {
       type: String,
-      default: "User Not Providing", // Default value set here
+     // Default value set here
       required: false,
     },
     city: {
@@ -131,12 +131,12 @@ const userSchema = new mongoose.Schema(
     },
     HowMuchAmountcanyouinvestindealership: {
       type: String,
-      default: "Dealer Not Filled", // Default value set here
+       // Default value set here
       required: false,
     },
     Howmuchareacanyouprovidefordisplay: {
       type: String,
-      default: "Dealer Not Filled", // Default value set here
+       // Default value set here
       required: false,
     },
   },
