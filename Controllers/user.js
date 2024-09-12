@@ -81,7 +81,7 @@ const transporter = nodemailer.createTransport({
 const sendEmailNotification = async (formData) => {
   const mailOptions = {
     from: process.env.EMAIL_USER, // Sender's email
-    to: "patilpatil12000@gmail.com", // Receiver's email
+    to: "tech3@imperiorailing.com", // Receiver's email
     subject: "New Dealer Details Submitted",
     text: `A new dealer has submitted their details. Here are the details:\n
       Full Name: ${formData.fullName}
