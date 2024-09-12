@@ -134,10 +134,7 @@ const handelPostData = async (req, res) => {
     !stateProvince ||
     !zipPostalCode ||
     !typeOfProductsOrIndustry ||
-    !numberOfYearsInBusiness ||
-    HowMuchAmountcanyouinvestindealership &&
-    Howmuchareacanyouprovidefordisplay &&
-    website
+    !numberOfYearsInBusiness
 
   ) {
     return res
@@ -158,9 +155,9 @@ const handelPostData = async (req, res) => {
       zipPostalCode,
       typeOfProductsOrIndustry,
       numberOfYearsInBusiness,
-      HowMuchAmountcanyouinvestindealership: null,
-      Howmuchareacanyouprovidefordisplay: null,
-      website: null,
+      HowMuchAmountcanyouinvestindealership,
+      Howmuchareacanyouprovidefordisplay,
+      website,
     });
 
     // Send email notification
