@@ -134,7 +134,11 @@ const handelPostData = async (req, res) => {
     !stateProvince ||
     !zipPostalCode ||
     !typeOfProductsOrIndustry ||
-    !numberOfYearsInBusiness
+    !numberOfYearsInBusiness ||
+    HowMuchAmountcanyouinvestindealership &&
+    Howmuchareacanyouprovidefordisplay &&
+    website
+
   ) {
     return res
       .status(400)
