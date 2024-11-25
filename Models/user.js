@@ -106,7 +106,7 @@ const userSchema = new mongoose.Schema(
     },
     website: {
       type: String,
-     // Default value set here
+      // Default value set here
       required: false,
     },
     city: {
@@ -131,31 +131,17 @@ const userSchema = new mongoose.Schema(
     },
     HowMuchAmountcanyouinvestindealership: {
       type: String,
-       // Default value set here
+      // Default value set here
       required: false,
     },
     Howmuchareacanyouprovidefordisplay: {
       type: String,
-       // Default value set here
+      // Default value set here
       required: false,
     },
   },
   { timestamps: true }
 );
-
-// Pre-save hook to ensure fields are initialized if not provided
-// userSchema.pre("save", function (next) {
-//   if (!this.website) {
-//     this.website = "User Not Providing"; // Ensure default value if not provided
-//   }
-//   if (!this.HowMuchAmountcanyouinvestindealership) {
-//     this.HowMuchAmountcanyouinvestindealership = "Dealer Not Filled"; // Ensure default value if not provided
-//   }
-//   if (!this.Howmuchareacanyouprovidefordisplay) {
-//     this.Howmuchareacanyouprovidefordisplay = "Dealer Not Filled"; // Ensure default value if not provided
-//   }
-//   next();
-// });
 
 const Dealertdata = mongoose.model("dealerdb", userSchema);
 

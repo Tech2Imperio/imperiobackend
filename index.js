@@ -1,5 +1,7 @@
 const express = require("express");
+const errorhandeler = require("./Middleware/errorHandeler");
 const userRouter = require("./Routes/user");
+const dealerRouter = require("./Routes/dealer");
 const Dbconnector = require("./DatabaseConnection/user");
 const logHistory = require("./Middleware/user");
 const bodyParser = require("body-parser");
@@ -29,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin:"https://www.imperiorailing.com", // Dynamically set origin process.env.BASE_URL ||
+    origin: "https://www.imperiorailing.com", // Dynamically set origin process.env.BASE_URL ||
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type",
   })
@@ -38,6 +40,7 @@ app.use(logHistory("log.txt"));
 
 // Routes (Removing '/user')
 app.use("/", userRouter); // Root path is now used
+app.use("/product", dealerRouter);
 
 // Test route
 app.get("/test", (req, res) => {
@@ -50,6 +53,8 @@ app.get("/test", (req, res) => {
 // });
 
 // Start server
+
+app.use(errorhandeler);
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
