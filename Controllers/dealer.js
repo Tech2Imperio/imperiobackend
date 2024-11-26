@@ -3,7 +3,7 @@ const Dealer = require("../Models/dealers");
 
 const dealerRegisterationHandeler = async (req, res) => {
   try {
-    const { first_name, last_name, gst_no, mob_no, email, password } = req.body;
+    const { username, phone, gst, email, password } = req.body;
 
     const emailExists = await Dealer.findOne({ email: email });
     if (emailExists) {
@@ -11,10 +11,9 @@ const dealerRegisterationHandeler = async (req, res) => {
     }
 
     const dealerRegitered = await Dealer.create({
-      first_name,
-      last_name,
-      gst_no,
-      mob_no,
+      username,
+      phone,
+      gst,
       email,
       password,
     });

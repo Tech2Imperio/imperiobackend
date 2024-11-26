@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://www.imperiorailing.com", // Dynamically set origin process.env.BASE_URL ||
+    origin: "http://localhost:5173/", // Dynamically set origin process.env.BASE_URL ||
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type",
   })

@@ -1,22 +1,19 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jsw = require("jsonwebtoken");
+const { type } = require("os");
 
 const dealerSchema = new mongoose.Schema({
-  first_name: {
+  username: {
     type: String,
     required: true,
   },
-  last_name: {
-    type: String,
-    required: true,
-  },
-  gst_no: {
-    type: String,
-    required: true,
-  },
-  mob_no: {
+  phone: {
     type: Number,
+    required: true,
+  },
+  gst: {
+    type: String,
     required: true,
   },
   email: {
@@ -27,6 +24,10 @@ const dealerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  }
 });
 
 // password hash middleware
@@ -60,7 +61,7 @@ dealerSchema.methods.generateToken = async function () {
       process.env.SECRET_PASS_KEY,
       { expiresIn: "30m" }
     );
-  } catch (error) {}
+  } catch (error) { }
 };
 
 // password comapre

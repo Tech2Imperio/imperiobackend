@@ -171,3 +171,4 @@
 2024-11-25T11:25:29.791Z POST /product/login ::1 New Request Received
 2024-11-25T11:25:36.587Z POST /product/login ::1 New Request Received
 2024-11-25T11:25:45.148Z POST /product/login ::1 New Request Received
+2024-11-26T09:10:51.527Z GET / ::1 New Request Received
