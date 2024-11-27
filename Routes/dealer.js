@@ -11,11 +11,12 @@ const [
 const validate = require("../Middleware/dealervalidates.js");
 
 const router = express.Router();
+
 router.post(
   "/dealerregistration",
   validate(registrationSchema),
   dealerRegisterationHandeler
 );
-router.post("/login", validate(loginSchema), logindealers);
+router.post("/dealerlogin", validate(loginSchema), logindealers);
 
 module.exports = router;

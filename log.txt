@@ -172,3 +172,11 @@
 2024-11-25T11:25:36.587Z POST /product/login ::1 New Request Received
 2024-11-25T11:25:45.148Z POST /product/login ::1 New Request Received
 2024-11-26T09:10:51.527Z GET / ::1 New Request Received
+2024-11-27T04:48:40.036Z POST /product/dealerlogin ::1 New Request Received
+2024-11-27T05:06:14.427Z POST /product/dealerregistration ::1 New Request Received
+2024-11-27T05:07:08.296Z POST /product/dealerregistration ::1 New Request Received
+2024-11-27T05:10:21.380Z GET /product/dealerregistration ::1 New Request Received
+2024-11-27T05:10:30.380Z GET /product/dealerregistration ::1 New Request Received
+2024-11-27T05:11:51.268Z GET /dealerregistration ::1 New Request Received
+2024-11-27T05:12:05.077Z GET /dealerregistration ::1 New Request Received
+2024-11-27T05:12:33.623Z GET /dealerregistration ::1 New Request Received
