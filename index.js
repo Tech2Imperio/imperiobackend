@@ -1,7 +1,7 @@
 const express = require("express");
 const errorhandeler = require("./Middleware/errorHandeler");
 const userRouter = require("./Routes/user");
-const dealerRouter = require("./Routes/dealer");
+// const dealerRouter = require("./Routes/dealer");
 const Dbconnector = require("./DatabaseConnection/user");
 const logHistory = require("./Middleware/user");
 const bodyParser = require("body-parser");
@@ -40,7 +40,7 @@ app.use(logHistory("log.txt"));
 
 // Routes (Removing '/user')
 app.use("/", userRouter); // Root path is now used
-app.use("/product", dealerRouter);
+// app.use("/product", dealerRouter);
 
 // Test route
 app.get("/test", (req, res) => {

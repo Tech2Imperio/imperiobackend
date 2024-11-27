@@ -39,13 +39,11 @@ const logindealers = async (req, res) => {
     const dealercredential = await dealerExists.CheckPassword(password);
 
     if (dealercredential) {
-      return res
-        .status(200)
-        .json({
-          msg: "dealers is login successfully...",
-          token: await dealerExists.generateToken(),
-          userId: await dealerExists._id.toString(),
-        });
+      return res.status(200).json({
+        msg: "dealers is login successfully...",
+        token: await dealerExists.generateToken(),
+        userId: await dealerExists._id.toString(),
+      });
     } else {
       return res.status(400).json({ msg: "Incorrect Credential" });
     }
@@ -54,4 +52,4 @@ const logindealers = async (req, res) => {
   }
 };
 
-module.exports = [dealerRegisterationHandeler, logindealers];
+module.exports = { dealerRegisterationHandeler, logindealers };
