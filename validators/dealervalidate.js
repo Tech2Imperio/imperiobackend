@@ -67,4 +67,4 @@ const loginSchema = z.object({
     .max(15, { message: "Password cannot be more than 15 characters" }),
 });
 
-module.exports = [registrationSchema, loginSchema];
+module.exports = { registrationSchema, loginSchema };

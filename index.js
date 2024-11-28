@@ -1,7 +1,7 @@
 const express = require("express");
 const errorhandeler = require("./Middleware/errorHandeler");
 const userRouter = require("./Routes/user");
-// const dealerRouter = require("./Routes/dealer");
+const dealerRouter = require("./Routes/dealer");
 const Dbconnector = require("./DatabaseConnection/user");
 const logHistory = require("./Middleware/user");
 const bodyParser = require("body-parser");
@@ -29,27 +29,31 @@ Dbconnector(dbUri, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: ["https://imperiorailing.com", "https://www.imperiorailing.com"],
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type",
-  })
-);
-
-// Use this only local host testing time
 // app.use(
 //   cors({
-//     origin: "http://localhost:5173", // Dynamically set origin process.env.BASE_URL ||
+//     origin: ["https://imperiorailing.com", "https://www.imperiorailing.com"],
 //     methods: "GET,POST,PUT,DELETE",
 //     allowedHeaders: "Content-Type",
 //   })
 // );
+
+// Use this only local host testing time
+app.use(
+  cors({
+    origin: [
+      "https://imperiorailing.com",
+      "https://www.imperiorailing.com",
+      "http://localhost:5173",
+    ],
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type",
+  })
+);
 app.use(logHistory("log.txt"));
 
 // Routes (Removing '/user')
 app.use("/", userRouter); // Root path is now used
-// app.use("/product", dealerRouter);
+app.use("/product", dealerRouter);
 
 // Test route
 app.get("/test", (req, res) => {
