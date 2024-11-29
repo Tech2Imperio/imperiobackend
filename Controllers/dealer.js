@@ -153,11 +153,11 @@ const dealerRegistrationHandler = async (req, res) => {
       <p>Please choose an action:</p>
 
       <!-- Accept Button: Opens an API endpoint to accept the dealer -->
-      <a href="http://yourdomain.com/admin/accept-dealer/${email}" 
+      <a href="https://imperiorailing.com/product/admin/accept-dealer/:email${email}" 
          style="background-color: green; color: white; padding: 10px; text-decoration: none;">Accept</a>
 
       <!-- Reject Button: Opens an API endpoint to reject the dealer -->
-      <a href="http://yourdomain.com/admin/decline-dealer/${email}" 
+      <a href="https://imperiorailing.com//product/admin/accept-dealer/:email${email}" 
          style="background-color: red; color: white; padding: 10px; text-decoration: none;">Reject</a>
     `;
 
