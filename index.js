@@ -51,21 +51,13 @@ app.use(
 );
 app.use(logHistory("log.txt"));
 
-// Routes (Removing '/user')
-app.use("/", userRouter); // Root path is now used
+app.use("/", userRouter);
 app.use("/product", dealerRouter);
 
 // Test route
 app.get("/test", (req, res) => {
   res.send("Test route is working");
 });
-
-// app.get("/", (req, res) => {
-//   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
-//   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-// });
-
-// Start server
 
 app.use(errorhandeler);
 app.listen(PORT, () => {
