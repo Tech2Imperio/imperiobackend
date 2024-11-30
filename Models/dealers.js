@@ -26,8 +26,8 @@ const dealerSchema = new mongoose.Schema({
   },
   isAdmin: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 // password hash middleware
@@ -61,7 +61,9 @@ dealerSchema.methods.generateToken = async function () {
       process.env.SECRET_PASS_KEY,
       { expiresIn: "30m" }
     );
-  } catch (error) { }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // password comapre

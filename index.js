@@ -29,15 +29,7 @@ Dbconnector(dbUri, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(
-//   cors({
-//     origin: ["https://imperiorailing.com", "https://www.imperiorailing.com"],
-//     methods: "GET,POST,PUT,DELETE",
-//     allowedHeaders: "Content-Type",
-//   })
-// );
 
-// Use this only local host testing time
 app.use(
   cors({
     origin: [
@@ -49,7 +41,7 @@ app.use(
     allowedHeaders: "Content-Type",
   })
 );
-app.use(logHistory("log.txt"));
+// app.use(logHistory("log.txt"));
 
 app.use("/", userRouter);
 app.use("/product", dealerRouter);

@@ -153,11 +153,11 @@ const dealerRegistrationHandler = async (req, res) => {
       <p>Please choose an action:</p>
 
       <!-- Accept Button: Opens an API endpoint to accept the dealer -->
-      <a href="https://imperiorailing.com/product/admin/accept-dealer/:email${email}" 
+      <a href="https://imperiorailing.com/dealer-authorization/${email}" 
          style="background-color: green; color: white; padding: 10px; text-decoration: none;">Accept</a>
 
       <!-- Reject Button: Opens an API endpoint to reject the dealer -->
-      <a href="https://imperiorailing.com//product/admin/accept-dealer/:email${email}" 
+      <a href="https://imperiorailing.com/dealer-authorization/${email}" 
          style="background-color: red; color: white; padding: 10px; text-decoration: none;">Reject</a>
     `;
 
@@ -189,33 +189,27 @@ const acceptDealerRegistration = async (req, res) => {
   }
 
   try {
-    // Logic to update the dealer status in the database
-    const dealer = await updateDealerStatus(email); // This should be your DB update function
+    // Find the dealer by email
+    const dealer = await Dealer.findOne({ email });
 
-    // If the dealer is successfully found and updated
-    if (dealer) {
-      console.log(`Dealer with email: ${email} accepted.`);
-      return res
-        .status(200)
-        .json({ message: `Dealer ${email} accepted successfully!` });
-    } else {
+    if (!dealer) {
       return res
         .status(404)
         .json({ message: `Dealer with email ${email} not found.` });
     }
+
+    // Update the isAdmin field to true to accept the dealer
+    dealer.isAdmin = true;
+    await dealer.save(); // Save the updated dealer document to the database
+
+    console.log(`Dealer with email: ${email} accepted.`);
+    return res
+      .status(200)
+      .json({ message: `Dealer ${email} accepted successfully!` });
   } catch (error) {
     console.error("Error accepting dealer:", error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
-};
-
-// Mock function to simulate updating dealer status
-const updateDealerStatus = async (email) => {
-  // Simulate DB update logic here, for example:
-  return {
-    email,
-    isAdmin: true, // Update this field to true when the dealer is accepted
-  };
 };
 
 // Decline dealer registration
