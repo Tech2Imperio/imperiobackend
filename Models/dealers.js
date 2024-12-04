@@ -61,7 +61,7 @@ dealerSchema.methods.generateToken = async function () {
         username: this.username,
       },
       process.env.SECRET_PASS_KEY,
-      { expiresIn: "2m" }
+      { expiresIn: "30m" }
     );
   } catch (error) {
     console.log(error);
