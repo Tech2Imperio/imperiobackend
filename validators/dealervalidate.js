@@ -126,15 +126,25 @@ const registrationSchema = z.object({
 });
 
 const loginSchema = z.object({
-  email: z
+  // email: z
+  //   .string({
+  //     required_error: "Email is required",
+  //     invalid_type_error: "Email must be a string",
+  //   })
+  //   .trim()
+  //   .email({ message: "Please enter a valid email format" })
+  //   .min(3, { message: "Email must be at least 3 characters long" })
+  //   .max(255, { message: "Email cannot be more than 255 characters" }),
+  phone: z
     .string({
-      required_error: "Email is required",
-      invalid_type_error: "Email must be a string",
+      required_error: "Phone number is required",
+      invalid_type_error: "Phone number must be a string",
     })
     .trim()
-    .email({ message: "Please enter a valid email format" })
-    .min(3, { message: "Email must be at least 3 characters long" })
-    .max(255, { message: "Email cannot be more than 255 characters" }),
+    .min(10, { message: "Phone number must be at least 10 digits long" })
+    .regex(/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/, {
+      message: "Phone number must be a valid format",
+    }),
 
   password: z
     .string({
