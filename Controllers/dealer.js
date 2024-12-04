@@ -105,11 +105,11 @@ const transporter = nodemailer.createTransport({
 // Centralized function to send an email
 const sendEmail = async (to, subject, text, htmlContent) => {
   const mailOptions = {
-    from: process.env.EMAIL_USER, // Admin's Gmail email
-    to, // Recipient's email (dealer's email)
+    from: process.env.EMAIL_USER,
+    to,
     subject,
     text,
-    html: htmlContent, // HTML content (congratulatory message)
+    html: htmlContent,
   };
 
   try {
@@ -253,10 +253,10 @@ const declineDealerRegistration = async (req, res) => {
 // Login for dealers
 const loginDealers = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { phone, password } = req.body;
 
     // Check if dealer exists by email
-    const dealerExists = await Dealer.findOne({ email });
+    const dealerExists = await Dealer.findOne({ phone });
     if (!dealerExists) {
       return res.status(400).json({ message: "Dealer not found" });
     }

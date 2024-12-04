@@ -11,6 +11,7 @@ const dealerSchema = new mongoose.Schema({
   phone: {
     type: Number,
     required: true,
+    unique: true,
   },
   gst: {
     type: String,
@@ -60,7 +61,7 @@ dealerSchema.methods.generateToken = async function () {
         username: this.username,
       },
       process.env.SECRET_PASS_KEY,
-      { expiresIn: "30m" }
+      { expiresIn: "2m" }
     );
   } catch (error) {
     console.log(error);
